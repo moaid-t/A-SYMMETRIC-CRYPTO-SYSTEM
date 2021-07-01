@@ -13,13 +13,13 @@ while True:
         2.Decrypt
         3.Exit
         ----------------------''')
-        cryptography = int(input("Enter your choice: "))
-        if cryptography == 1 or cryptography == 2:
+        process = int(input("Enter your choice: "))
+        if process == 1 or process == 2:
             print("(1) File (2) Folder")
             f_choice = int(input("Enter your choice: "))
             algorithm = input("Algorithm (AES, DES): ").strip()
             # Start Encrypt
-            if cryptography == 1:
+            if process == 1:
                 # Start File Encrypt
                 if f_choice == 1:
                     fileName = input("Name: ").strip()
@@ -34,10 +34,10 @@ while True:
                 # End File Encrypt
                 # Start Folder Encrypt
                 elif f_choice == 2:
-                    path = input("Enter The Foldr Path: /")  # # Example 'container'
+                    path = input("Enter The Foldr Path: /")  # 'container001' or 'container002'
                     key = input("Key : ").strip()
                     if algorithm == "AES":
-                        # Save all folder files in list
+                        # Save all files in list
                         text_files = [f for f in os.listdir(path) if f.endswith('.txt')]
                         # For Each file make AES encrypt
                         for f in text_files:
@@ -52,7 +52,7 @@ while True:
                 # End Folder Encrypt
             # Close Encrypt
             # Start Decrypt
-            elif cryptography == 2:
+            elif process == 2:
                 # Start File Decrypt
                 if f_choice == 1:
                     fileName = input("Name: ").strip()
@@ -67,7 +67,7 @@ while True:
                 # close File Decrypt
                 # Start folder Decrypt
                 elif f_choice == 2:
-                    path = input("Enter The Foldr Path: /")  # Example 'container'
+                    path = input("Enter The Foldr Path: /")  # 'container001' or 'container002'
                     key = input("Key : ")
                     if algorithm == "AES":
                         text_files = [f.split('.')[0] for f in os.listdir(path) if f.endswith('.encrypted')]
@@ -82,7 +82,7 @@ while True:
                     print('-' * 50)
                 # end folder Decrypt
             # End Decrypt
-        elif cryptography == 3:
+        elif process == 3:
             print("Exit Don")
             print('-' * 50)
             break
