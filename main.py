@@ -34,10 +34,10 @@ while True:
                 # End File Encrypt
                 # Start Folder Encrypt
                 elif f_choice == 2:
-                    path = input("Enter The Foldr Path: /")  # 'container001' or 'container002'
+                    path = input("Enter The Foldr Path: /")  # # Example 'container'
                     key = input("Key : ").strip()
                     if algorithm == "AES":
-                        # Save all files in list
+                        # Save all folder files in list
                         text_files = [f for f in os.listdir(path) if f.endswith('.txt')]
                         # For Each file make AES encrypt
                         for f in text_files:
@@ -67,7 +67,7 @@ while True:
                 # close File Decrypt
                 # Start folder Decrypt
                 elif f_choice == 2:
-                    path = input("Enter The Foldr Path: /")  # 'container001' or 'container002'
+                    path = input("Enter The Foldr Path: /")  # Example 'container'
                     key = input("Key : ")
                     if algorithm == "AES":
                         text_files = [f.split('.')[0] for f in os.listdir(path) if f.endswith('.encrypted')]
