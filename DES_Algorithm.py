@@ -5,16 +5,16 @@ import binascii
 
 def encrypt_file(key, filename):
     try:
-        key = key.encode("utf-8")
+        key = key.encode("utf-8") # convert key to binary 
         name = filename.split('.')[0]
-        cipher = DES.new(key, DES.MODE_ECB)
-        if pathlib.Path(filename).exists():
-            with open(filename, "r") as file:
+        cipher = DES.new(key, DES.MODE_ECB) # create AES object  with  block cipher mode = (Electronic Code Book)
+        if pathlib.Path(filename).exists(): 
+            with open(filename, "r") as file: 
                 plan_text = file.read().encode("utf-8")
                 file.close()
             with open(f"{name}.encrypted", "w") as encryptedFile:
-                ciphertext = cipher.encrypt(pad(plan_text, DES.block_size))
-                encryptedFile.write(binascii.b2a_base64(ciphertext).decode("utf-8"))
+                ciphertext = cipher.encrypt(pad(plan_text, DES.block_size)) # encrypt text
+                encryptedFile.write(binascii.b2a_base64(ciphertext).decode("utf-8")) # write encrypt text and convert it from binary to abase64 
                 encryptedFile.close()
             # print(binascii.hexlify(ciphertext))
             print(f"Done! File {name} is encrypted using DRS-64\nOutput file is {name}.encrypted")
@@ -31,10 +31,10 @@ def decrypt_file(key, filename):
         if pathlib.Path(filename + ".encrypted").exists():
             with open(filename + ".encrypted", "r") as decrypt:
                 ciphertext = decrypt.read()
-                ciphertext = binascii.a2b_base64(ciphertext)
+                ciphertext = binascii.a2b_base64(ciphertext) 
                 decrypt.close()
             cipher = DES.new(key, DES.MODE_ECB)
-            plan_text = unpad(cipher.decrypt(ciphertext), DES.block_size)
+            plan_text = unpad(cipher.decrypt(ciphertext), DES.block_size) # decrypt text with unpadding function
             with open(f"{filename}.decrypted", "w") as encryptedFile:
                 encryptedFile.write(plan_text.decode("utf-8"))
                 encryptedFile.close()
