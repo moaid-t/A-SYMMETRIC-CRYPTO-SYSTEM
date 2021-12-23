@@ -1,30 +1,20 @@
 -------------------------------------
-In project file there 3 main files main.py ,DES_Algorithm.py ,and AES_Algorithm.py
+There are three primary components in the project file: main.py, DES Algorithm.py, and AES Algorithm.py.
+main.py contains the menu, from which you can start and run the program.
 
-main.py contain the menu and from it you can start the program and run it
+The DES Algorithm.py file has two functions: encrypt file and decrypt file, both of which use the DES Algorithm 64-bits.
 
-DES_Algorithm.py file contain two function encrypt_file ,and decrypt_file using DES Algorithm 64-bits
+The AES Algorithm.py file contains two functions: encrypt file and decrypt file, both of which use the 192-bit AES Algorithm.
 
-AES_Algorithm.py file contain two function encrypt_file ,and decrypt_file using AES Algorithm 192-bits
-
-All 4 function take two arguments (Key, File mame)
-
+All four functions accept two arguments (Key, File name) 
 -------------------------------------
-Steps To run progarm :
+To run progarm, follow these steps:
 
-step1: install python from :
-https://www.python.org
-
-make sure you have python version 3.6 or above
-check python version using this command:
+step 1: Download Python from https://www.python.org/.
+Make sure you're running Python 3.6 or higher.
+Use the following command to determine the Python version:
 python ––version
-
-step2: install the requirements from requirements.txt open cmd or Terminal and then write:
-pip install -r requirements.txt
-or 
-pip3 install -r requirements.txt
-
-final step: run the program by using this command:
-python main.py
-or
+step 2: Install the requirements from requirements.txt by opening cmd or Terminal and typing 
+pip install -r requirements.txt or pip3 install -r requirements.txt.
+Finally, start the application with the following command:
 python3 main.py
